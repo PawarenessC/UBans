@@ -456,7 +456,6 @@ $prefix §c{$args[0]}§aをテキストでUBanしました
 §6Reason    §f: §b $args[6]
 UBANBYTEXT;
         $sender->sendMessage($ubanbytext);
-   return true;
     }
 }
 
