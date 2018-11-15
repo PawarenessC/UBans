@@ -457,7 +457,8 @@ $prefix §c{$args[0]}§aをテキストでUBanしました
 UBANBYTEXT;
         $sender->sendMessage($ubanbytext);
     }
-}
+return true;
+    }
 
     public function onBlockBreak(BlockBreakEvent $event){
         $player = $event->getPlayer();
