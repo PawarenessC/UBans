@@ -1,2 +1,6 @@
 # UBans
-Ban!
+###API
+```php
+
+$this->test  = $test;
+```
