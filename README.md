@@ -1,5 +1,5 @@
 # UBans
-###API
+### API
 ```php
 ※ “ $this->UBans = Server::getInstance()->getPluginManager()->getPlugin(“UBans”); “
 
