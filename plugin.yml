@@ -1,7 +1,7 @@
 name: UBans
 main: Hayamajin\UBans
 authors: [Hayamajin,XxawarenessxX]
-version: 5.0.0
+version: 5.2.0
 api: [3.0.0,3.8.0,4.0.0]
 load: STARTUP
 description: 様々な機能を備えた荒らし対策プラグインです
