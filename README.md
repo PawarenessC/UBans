@@ -27,7 +27,7 @@ unUBan($name)
 
 $name = PlayerName
 
-例 : $this->UBans->unUBan(“Ramen_is_Goooooooood!!”);
+ex) : $this->UBans->unUBan(“Ramen_is_Goooooooood!!”);
 
 ————————————————————————————————————————————————————————————
 
@@ -45,7 +45,7 @@ $cid = ClientID
 $uuid = UniqueID
 $rawid = RawID
 
-例 : $this->UBans->isUBanned_A($name, $ip, $host, $cid, $uuid, $rawid);
+ex) : $this->UBans->isUBanned_A($name, $ip, $host, $cid, $uuid, $rawid);
 
 ————————————————————————————————————————————————————————————
 //Function to check if it is being banned by that name
@@ -55,7 +55,7 @@ isUBanned_B($name)
 
 $name = PlayerName
 
-例 : $this->UBans->isUBanned_B($name);
+ex) : $this->UBans->isUBanned_B($name);
 
 ————————————————————————————————————————————————————————————
 
@@ -71,7 +71,7 @@ $name = PlayName
 $reason = reason
 $sender_name = SenderName
 
-例 : $this->UBans->addWarn(“Ramen_is_Goooooooood!!”, “I don't know”, “TukemenHa”);
+ex) : $this->UBans->addWarn(“Ramen_is_Goooooooood!!”, “I don't know”, “TukemenHa”);
 
 ————————————————————————————————————————————————————————————
 
@@ -80,7 +80,7 @@ unWarn($name)
 
 $name = PlayerName
 
-例 : $this->UBans->unWarn(“Ramen_is_Goooooooood!!”);
+ex) : $this->UBans->unWarn(“Ramen_is_Goooooooood!!”);
 
 ————————————————————————————————————————————————————————————
 
@@ -90,7 +90,7 @@ isWarned($name)
 
 $name = PlayerName
 
-例 : $this->UBans->isWarned($name);
+ex) : $this->UBans->isWarned($name);
 
 ————————————————————————————————————————————————————————————
 
@@ -98,7 +98,7 @@ setDanger(Player $player)
 
 $player = PlayerObject
 
-例 : $this->UBans->setDanger(Server::getInstance()->getPlayer(“Ramen_is_Goooooooood!!”));
+ex) : $this->UBans->setDanger(Server::getInstance()->getPlayer(“Ramen_is_Goooooooood!!”));
 
 ————————————————————————————————————————————————————————————
 
@@ -106,7 +106,7 @@ setDefaultStatus(Player $player)
 
 $player = PlayerObject
 
-例 : $this->UBans->setDefaultStatus(Server::getInstance()->getPlayer(“Ramen_is_Goooooooood!!”));
+ex) : $this->UBans->setDefaultStatus(Server::getInstance()->getPlayer(“Ramen_is_Goooooooood!!”));
 
 ———————————————————————————————————————————————————————————
 
