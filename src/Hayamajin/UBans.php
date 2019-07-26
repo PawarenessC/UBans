@@ -20,8 +20,8 @@ use pocketmine\event\block\BlockPlaceEvent;
 
 class UBans extends PluginBase implements Listener{
 
-const VERSION        = "5.2.0";
-const CONFIG_VERSION = "0.1";
+const VERSION        = "5.2.1";
+const CONFIG_VERSION = "0.2";
 
 const UBANS_COMMANDS = <<<COMMANDS
 §b/ubans about   §f: §6UBansがどのようなプラグインなのかを確認出来ます
@@ -57,7 +57,8 @@ ABOUT;
         $this->Setting  = new Config($this->getDataFolder() . "Setting.yml", Config::YAML, array(
                                     "コンフィグバージョン(編集禁止)"                   => self::CONFIG_VERSION,
                                     "参加時にプレイヤーの情報を表示する(true or false)" => "false",
-                                    "UBan時にプレイヤーの情報を表示する(true or false)" => "false"));
+                                    "UBan時にプレイヤーの情報を表示する(true or false)" => "false",
+				    "Warnされているプレイヤーのブロックの操作を制限する" => "false"));
         $this->s->getPluginManager()->registerEvents($this, $this);
 
 		if (!file_exists($db)){
@@ -78,7 +79,7 @@ ABOUT;
                     $this->getLogger()->warning("§c古いコンフィグ(Setting.yml)を消去して、新しいコンフィグを生成してください");
         }
 
-        $this->getLogger()->info("§eUBans v" . self::VERSION . "§aをロードしました §9by Hayamajin & XxawarenessxX");
+        $this->getLogger()->info("§eUBans v" . self::VERSION . "§aをロードしました §9by Hayamajin & PawarenessC");
 
     }
 
@@ -159,7 +160,8 @@ ABOUT;
         if ($command->getName() === "uban"){
 
             if (empty($args[0])){
-                $sender->sendMessage("$prefix §b使い方 : /uban <プレイヤーネーム> <理由>");
+                //$sender->sendMessage("$prefix §b使い方 : /uban <プレイヤーネーム> <理由>");
+		$this->ubanui($sender);
                 return true;
             }
 
@@ -211,7 +213,8 @@ ABOUT;
         if ($command->getName() === "unuban"){
 
             if (empty($args[0])){
-                $sender->sendMessage("$prefix §b使い方 : /unuban <プレイヤーネーム>");
+                //$sender->sendMessage("$prefix §b使い方 : /unuban <プレイヤーネーム>");
+		$this->unubanui($sender);
                 return true;
             }
 
@@ -234,7 +237,8 @@ ABOUT;
         if ($command->getName() === "warn"){
 
             if (empty($args[0])){
-                $sender->sendMessage("$prefix §b使い方 : /warn <プレイヤーネーム> <理由>");
+                //$sender->sendMessage("$prefix §b使い方 : /warn <プレイヤーネーム> <理由>");
+		$this->warnui($sender);
                 return true;
             }
 
@@ -276,7 +280,8 @@ ABOUT;
         if ($command->getName() == "unwarn"){
 
             if (empty($args[0])){
-                $sender->sendMessage("$prefix §b使い方 : /unwarn <プレイヤーネーム>");
+                //$sender->sendMessage("$prefix §b使い方 : /unwarn <プレイヤーネーム>");
+		$this->unwarnui($sender);
                 return true;
             }
 
@@ -463,7 +468,7 @@ return true;
     public function onBlockBreak(BlockBreakEvent $event){
         $player = $event->getPlayer();
         $name   = $player->getName();
-        if ($this->getPlayerData($name)["warn"] === 1){
+        if ($this->getPlayerData($name)["warn"] === 1 && $this->getSetting("Warnされているプレイヤーのブロックの操作を制限する") == "true"){
             $player->sendTip("§c⚠あなたはWarnされています⚠");
             $event->setCancelled();
         }
@@ -471,7 +476,7 @@ return true;
     public function onBlockPlace(BlockPlaceEvent $event){
         $player = $event->getPlayer();
         $name   = $player->getName();
-        if ($this->getPlayerData($name)["warn"] === 1){
+        if ($this->getPlayerData($name)["warn"] === 1 && $this->getSetting("Warnされているプレイヤーのブロックの操作を制限する") == "true"){
             $player->sendTip("§c⚠あなたはWarnされています⚠");
             $event->setCancelled();
         }
