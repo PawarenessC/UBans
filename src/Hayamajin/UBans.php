@@ -20,7 +20,7 @@ use pocketmine\event\block\BlockPlaceEvent;
 
 class UBans extends PluginBase implements Listener{
 
-const VERSION        = "5.2.0";
+const VERSION        = "5.2.1";
 const CONFIG_VERSION = "0.2";
 
 const UBANS_COMMANDS = <<<COMMANDS
